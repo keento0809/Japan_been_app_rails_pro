@@ -57,3 +57,4 @@ Prefecture.create!(name: "宮崎県")
 Prefecture.create!(name: "鹿児島県")
 Prefecture.create!(name: "沖縄県")
 
+# 福井県を追加し忘れています。id: 47, name: "福井県"

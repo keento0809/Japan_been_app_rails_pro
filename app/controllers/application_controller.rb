@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
     include SessionsHelper
+    # include PrefecturesHelper
 
     before_action :set_search, :get_prefectures, :index
 
@@ -18,6 +19,10 @@ class ApplicationController < ActionController::Base
         @prefectures = Prefecture.all
         @prefectures = @prefectures.where('name LIKE ?', "%#{params[:search]}%") if params[:search].present?
       end
+
+    # def prefecture_name_params
+    #     params.require(:check).permit(prefecture_name: [])
+    # end
 
     # def current_user
     #     if (user_id = session[:user_id])

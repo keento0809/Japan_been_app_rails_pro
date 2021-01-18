@@ -1,9 +1,5 @@
 <!-- 都道府県詳細ページの戻るボタンを押すとトップページに戻るようにする -->
-<% if logged_in? %>
-    <%= render 'homes/if' %>
-<% else %>
-    <%= render 'homes/else' %>
-<% end %>
+<%= render 'prefectures/test' %>
 
 
 
@@ -14,6 +10,7 @@
 
 <p>Prefectures Index</p>
 <h1>なぜ非同期通信せんのじゃい</h1>
+
 
 <dl class="searchbox">
     <%= search_form_for @search, url: prefectures_path do |f| %>

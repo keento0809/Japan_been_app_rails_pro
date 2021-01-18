@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_09_105227) do
+ActiveRecord::Schema.define(version: 2021_01_17_090939) do
 
   create_table "checks", force: :cascade do |t|
     t.integer "check_id"
@@ -33,6 +33,8 @@ ActiveRecord::Schema.define(version: 2021_01_09_105227) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "img"
     t.string "comment"
+    t.boolean "checkbox", default: false
+    t.string "beens"
   end
 
   create_table "users", force: :cascade do |t|

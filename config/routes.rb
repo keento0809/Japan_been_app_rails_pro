@@ -12,6 +12,9 @@ Rails.application.routes.draw do
   get 'homes/index'
   get 'sessions/new'
 
+  post '/', to: 'checks#create'
+  post 'prefectures/index' , to: 'prefectures#update_been'
+
 #   get 'favorites/index'
 #   post '/favoites', to: 'favorites#create'
 #   get 'likes/index'
@@ -32,5 +35,5 @@ Rails.application.routes.draw do
 #   only: [:edit, :update, :show, :destory]
   resources :account_activations, only: [:edit]
 
-#   resources :checks
+  resources :checks
 end

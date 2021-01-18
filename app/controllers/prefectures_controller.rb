@@ -1,5 +1,6 @@
 class PrefecturesController < ApplicationController
     before_action :set_search
+    # before_action :set_prefecture
 
   def index
     if params[:search]
@@ -19,7 +20,7 @@ class PrefecturesController < ApplicationController
   end
 
   def edit
-
+    @prefectures = Prefecture.all
   end
 
   def update
@@ -33,6 +34,55 @@ class PrefecturesController < ApplicationController
     end
   end
 
+  def update_been
+    @prefecture = Prefecture.where(been_params)
+    @prefecture.update(been_params)
+    if params[:prefecture][beens] = '1'
+        @prefecture.checkbox = true
+    end
+    flash[:success] = "Done."
+    redirect_to root_url
+  end
+#   def update_been
+#     if params[:checkbox] == "true"
+#         prefecture = Prefecture.where(params[:checkbox])
+#         prefecture.checkbox = true
+#         prefecture.save
+#         prefecture.update(been_params)
+#         redirect_to root_url
+    # elsif params[:checkbox] == " "
+    #     prefecture = Prefecture.where(params[:checkbox])
+        
+    #     # prefecture.save(been_params)
+    #     prefecture.update(been_params)
+    #     redirect_to root_url
+#     else
+#         render 'prefectures/index'
+#     end
+#   end
+
+#   def update_been
+#     @prefecture = Prefecture.where(params[:checkbox])
+#     # if params[:checkbox] == 1
+#     #     @prefecture.checkbox = true
+#     # end
+#     # @prefectures = Prefecture.all
+#     if  @prefecture.update(been_params)
+#         # @prefecture = true
+#         redirect_to prefectures_path, notice: 'Success!'
+#     end
+#   end
+
+#   def update_been
+#     @prefecture = Prefecture.all.where(params[:checkbox])
+#     if  params[:checkbox] == 1
+#         @prefecture.checkbox = true
+#         @prefectures.save
+#         # @prefecture = true
+#         redirect_to 'root'
+#     end
+#   end
+
 
   def set_search
     @search = Prefecture.ransack(params[:q])
@@ -44,8 +94,20 @@ class PrefecturesController < ApplicationController
     # end
   end
 
+#   def been_true
+#     if @prefecture.update(been_params)
+#   end
+
   private
     def prefecture_params
+        # params.require(:prefecture).permit(:img, :comment)
         params.require(:prefecture).permit(:img, :comment)
     end
+
+    def been_params
+        params.permit(beens: [])
+    end
+    # def been_params
+    #     params.permit(:prefecture_ids[], :authenticity_token, :commit)
+    # end
 end

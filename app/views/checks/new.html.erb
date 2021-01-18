@@ -1,2 +1,55 @@
-<h1>Checks#new</h1>
-<p>Find me in app/views/checks/new.html.erb</p>
+<h2>Prefecture Data Storage Test</h2>
+
+<%= form_with(model: @check, local: true) do |form| %>
+    <ul id="js-pref-list"> 
+        <li id="jsPref0" class="searchPref"><%= form.check_box :prefecture_name, { multiple: true }, "北海道", nil %>北海道</li>
+        <li id="jsPref1" class="searchPref"><%= form.check_box :prefecture_name, { multiple: true }, "青森", nil %>青森</li>
+        <li id="jsPref2" class="searchPref"><%= form.check_box :prefecture_name, { multiple: true }, "秋田", nil %>秋田</li>
+        <li id="jsPref3" class="searchPref"><%= form.check_box :prefecture_name, { multiple: true }, "岩手", nil %>岩手</li>
+        <li id="jsPref4" class="searchPref"><%= form.check_box :prefecture_name, { multiple: true }, "山形", nil %>山形</li>
+        <li id="jsPref5" class="searchPref"><%= form.check_box :prefecture_name, { multiple: true }, "宮城", nil %>宮城</li>
+        <li id="jsPref6" class="searchPref"><%= form.check_box :prefecture_name, { multiple: true }, "福島", nil %>福島</li>
+        <li id="jsPref7" class="searchPref"><%= form.check_box :prefecture_name, { multiple: true }, "群馬", nil %>群馬</li>
+        <li id="jsPref8" class="searchPref"><%= form.check_box :prefecture_name, { multiple: true }, "栃木", nil %>栃木</li>
+        <li id="jsPref9" class="searchPref"><%= form.check_box :prefecture_name, { multiple: true }, "茨城", nil %>茨城</li>
+        <li id="jsPref10" class="searchPref"><%= form.check_box :prefecture_name, { multiple: true }, "埼玉", nil %>埼玉</li>
+        <li id="jsPref11" class="searchPref"><%= form.check_box :prefecture_name, { multiple: true }, "千葉", nil %>千葉</li>
+        <li id="jsPref12" class="searchPref"><%= form.check_box :prefecture_name, { multiple: true }, "東京", nil %>東京</li>
+        <li id="jsPref13" class="searchPref"><%= form.check_box :prefecture_name, { multiple: true }, "神奈川", nil %>神奈川</li>
+        <li id="jsPref14" class="searchPref"><%= form.check_box :prefecture_name, { multiple: true }, "新潟", nil %>新潟</li>
+        <li id="jsPref15" class="searchPref"><%= form.check_box :prefecture_name, { multiple: true }, "富山", nil %>富山</li>
+        <li id="jsPref16" class="searchPref"><%= form.check_box :prefecture_name, { multiple: true }, "石川", nil %>石川</li>
+        <li id="jsPref17" class="searchPref"><%= form.check_box :prefecture_name, { multiple: true }, "福井", nil %>福井</li>
+        <li id="jsPref18" class="searchPref"><%= form.check_box :prefecture_name, { multiple: true }, "長野", nil %>長野</li>
+        <li id="jsPref19" class="searchPref"><%= form.check_box :prefecture_name, { multiple: true }, "岐阜", nil %>岐阜</li>
+        <li id="jsPref20" class="searchPref"><%= form.check_box :prefecture_name, { multiple: true }, "山梨", nil %>山梨</li>
+        <li id="jsPref21" class="searchPref"><%= form.check_box :prefecture_name, { multiple: true }, "愛知", nil %>愛知</li>
+        <li id="jsPref22" class="searchPref"><%= form.check_box :prefecture_name, { multiple: true }, "静岡", nil %>静岡</li>
+        <li id="jsPref23" class="searchPref"><%= form.check_box :prefecture_name, { multiple: true }, "京都", nil %>京都</li>
+        <li id="jsPref24" class="searchPref"><%= form.check_box :prefecture_name, { multiple: true }, "滋賀", nil %>滋賀</li>
+        <li id="jsPref25" class="searchPref"><%= form.check_box :prefecture_name, { multiple: true }, "大阪", nil %>大阪</li>
+        <li id="jsPref26" class="searchPref"><%= form.check_box :prefecture_name, { multiple: true }, "奈良", nil %>奈良</li>
+        <li id="jsPref27" class="searchPref"><%= form.check_box :prefecture_name, { multiple: true }, "三重", nil %>三重</li>
+        <li id="jsPref28" class="searchPref"><%= form.check_box :prefecture_name, { multiple: true }, "和歌山", nil %>和歌山</li>
+        <li id="jsPref29" class="searchPref"><%= form.check_box :prefecture_name, { multiple: true }, "兵庫", nil %>兵庫</li>
+        <li id="jsPref30" class="searchPref"><%= form.check_box :prefecture_name, { multiple: true }, "鳥取", nil %>鳥取</li>
+        <li id="jsPref31" class="searchPref"><%= form.check_box :prefecture_name, { multiple: true }, "岡山", nil %>岡山</li>
+        <li id="jsPref32" class="searchPref"><%= form.check_box :prefecture_name, { multiple: true }, "島根", nil %>島根</li>
+        <li id="jsPref33" class="searchPref"><%= form.check_box :prefecture_name, { multiple: true }, "広島", nil %>広島</li>
+        <li id="jsPref34" class="searchPref"><%= form.check_box :prefecture_name, { multiple: true }, "山口", nil %>山口</li>
+        <li id="jsPref35" class="searchPref"><%= form.check_box :prefecture_name, { multiple: true }, "香川", nil %>香川</li>
+        <li id="jsPref36" class="searchPref"><%= form.check_box :prefecture_name, { multiple: true }, "愛媛", nil %>愛媛</li>
+        <li id="jsPref37" class="searchPref"><%= form.check_box :prefecture_name, { multiple: true }, "徳島", nil %>徳島</li>
+        <li id="jsPref38" class="searchPref"><%= form.check_box :prefecture_name, { multiple: true }, "高知", nil %>高知</li>
+        <li id="jsPref39" class="searchPref"><%= form.check_box :prefecture_name, { multiple: true }, "福岡", nil %>福岡</li>
+        <li id="jsPref40" class="searchPref"><%= form.check_box :prefecture_name, { multiple: true }, "佐賀", nil %>佐賀</li>
+        <li id="jsPref41" class="searchPref"><%= form.check_box :prefecture_name, { multiple: true }, "長崎", nil %>長崎</li>
+        <li id="jsPref42" class="searchPref"><%= form.check_box :prefecture_name, { multiple: true }, "大分", nil %>大分</li>
+        <li id="jsPref43" class="searchPref"><%= form.check_box :prefecture_name, { multiple: true }, "熊本", nil %>熊本</li>
+        <li id="jsPref44" class="searchPref"><%= form.check_box :prefecture_name, { multiple: true }, "宮崎", nil %>宮崎</li>
+        <li id="jsPref45" class="searchPref"><%= form.check_box :prefecture_name, { multiple: true }, "鹿児島", nil %>鹿児島</li>
+        <li id="jsPref46" class="searchPref"><%= form.check_box :prefecture_name, { multiple: true }, "沖縄", nil %>沖縄</li>  
+    </ul>
+
+    <%= form.submit %>
+<% end %>
