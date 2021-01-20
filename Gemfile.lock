@@ -95,6 +95,10 @@ GEM
       sassc (>= 1.11)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
+    hirb (0.7.3)
+    hirb-unicode (0.0.5)
+      hirb (~> 0.5)
+      unicode-display_width (~> 0.1.1)
     i18n (1.8.5)
       concurrent-ruby (~> 1.0)
     image_processing (1.12.1)
@@ -207,6 +211,7 @@ GEM
       thread_safe (~> 0.1)
     tzinfo-data (1.2020.5)
       tzinfo (>= 1.0.0)
+    unicode-display_width (0.1.1)
     web-console (4.1.0)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
@@ -238,6 +243,8 @@ DEPENDENCIES
   capybara (>= 2.15)
   carrierwave
   font-awesome-sass
+  hirb
+  hirb-unicode
   jbuilder (~> 2.7)
   jquery-rails (~> 4.3.1)
   mini_magick

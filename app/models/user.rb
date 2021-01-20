@@ -8,7 +8,10 @@ class User < ApplicationRecord
 
     has_secure_password
 
-    # Userから見てLikeは複数存在する
+    # Userは行ったことのある都道府県データのCheckを所有する
+
+    
+
     # has_manyは複数形なのでモデルを複数形の:likes、:prefecturesにする
     
 

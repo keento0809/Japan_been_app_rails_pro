@@ -1,0 +1,12 @@
+<h2>Prefectures you've ever been to.</h2>
+
+<ul>
+    <% @checks.each do |check| %>
+        <li>
+            <!-- check.idはuser.idとuser.name(user.id)と紐づけする -->
+            <%= check.id %>
+            <!-- check.prefecture_nameとprefecture.nameの紐づけ -->
+            <%= check.prefecture_name %>
+        </li>
+    <% end %>
+</ul>

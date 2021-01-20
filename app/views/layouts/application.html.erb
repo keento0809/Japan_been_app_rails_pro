@@ -40,6 +40,7 @@
     </div>
 
     <!-- ヘッダー -->
+    <% if false %>
     <header>
         <div class="header" id="js-header">
         <h1 class="header-title">Japan been</h1>
@@ -75,13 +76,20 @@
         </div> <!-- header -->
         <!-- ここまでハンバーガーメニュー -->
     </header>
+    <% end %>
     <!-- ヘッダーここまで -->
 
     <main>
         <%# <div class="main-container"> %>
+            <!-- エラーメッセージを一旦コメントアウト -->
+            <% if false %>
+
             <% flash.each do |message_type, message| %>
                 <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
             <% end %>
+            
+            <% end %>
+            <!-- ここまで -->
             <%= yield %>
         <%# </div> %>
     </main>
@@ -92,6 +100,11 @@
         <i class="fas fa-external-link-alt"></i>
         <span id="js-test">Japan beenをSNSでシェア</span>
         </section>
+        <% if logged_in? %>
+            <li><%= link_to "ユーザー名：#{current_user.name}", user_path(current_user.id) %> </li>
+            <li><%= link_to "登録情報の編集", edit_user_path(current_user.id) %></li>
+            <li><%= link_to "ログアウト", logout_path, method: :delete %></li>
+        <% end %>
     </footer>
     <!-- フッターここまで -->
 

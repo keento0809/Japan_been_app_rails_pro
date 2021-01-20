@@ -1,3 +1,4 @@
 class Check < ApplicationRecord
-    # belongs_to :prefecture
+    # Checkのデータはユーザーによって所有されている
+    # belongs_to :user
 end

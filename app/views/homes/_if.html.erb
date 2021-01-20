@@ -2,6 +2,47 @@
     <%= stylesheet_link_tag 'homes', media: 'all', 'data-turbolinks-track': 'reload' %>
 </head>
 
+
+<header>
+        <div class="header" id="js-header">
+        <h1 class="header-title">Japan been</h1>
+        <!-- <h1 class="header-title"><%= link_to "Japan been", root_url %></h1> -->
+        <div class="search">
+            <i class="fas fa-search fa-2x" id="js-search-icon"></i>
+        </div>
+        <!-- ハンバーガーメニュー -->
+        <input type="checkbox" class="openSidebarMenu" id="openSidebarMenu">
+        <label for="openSidebarMenu" class="sidebarIconToggle">
+            <div class="spinner diagonal part-1"></div>
+            <div class="spinner horizontal"></div>
+            <div class="spinner diagonal part-2"></div>
+        </label>
+        <div id="sidebarMenu">
+            <ul class="sidebarMenuInner">
+
+            <% if false %> <!-- オリジナル版コメントアウト -->
+            <li><a href="https://vanila.io" target="_blank">登録情報の編集</a></li>
+            <li><a href="https://vanila.io" target="_blank">ログアウト</a></li>
+            <% end %> <!-- コメントアウトここまで -->
+
+            <!-- 書き換え版 -->
+            <% if logged_in? %>
+                <li><%= link_to "ユーザー名：#{current_user.name}", user_path(current_user.id) %> </li>
+                <li><%= link_to "登録情報の編集", edit_user_path(current_user.id) %></li>
+                <li><%= link_to "ログアウト", logout_path, method: :delete %></li>
+            <% end %>
+            <!-- 書き換え版ここまで -->
+
+            </ul> 
+            </div> <!-- slidemenu -->
+        </div> <!-- header -->
+        <!-- ここまでハンバーガーメニュー -->
+    </header>
+
+
+
+
+
 <%# if false ~ endで全体をコメントアウト(erbファイル)  %>
 <% if false %>
 
