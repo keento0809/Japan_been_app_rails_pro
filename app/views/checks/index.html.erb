@@ -4,9 +4,25 @@
     <% @checks.each do |check| %>
         <li>
             <!-- check.idはuser.idとuser.name(user.id)と紐づけする -->
-            <%= check.id %>
+            check_id: <%= check.id %>,
+            <!-- ユーザー名 -->
+            user_id: <%= check.user_id %>,
             <!-- check.prefecture_nameとprefecture.nameの紐づけ -->
-            <%= check.prefecture_name %>
+            <!-- 都道府県: <%= check.prefecture_name %> -->
+            都道府県id: <%= check.prefecture_ids %>
+            都道府県名：
+            <%# チェックされた都道府県名を表示 %>
+            <% check.prefectures.find(check.prefecture_ids).each do |che| %>
+                <%= che.name %>
+            <% end %>
         </li>
     <% end %>
 </ul>
+
+
+<div>
+    <%= link_to "NEW", checks_new_path %>
+</div>
+<div>
+    <%= link_to "TOP", root_url %>
+</div>

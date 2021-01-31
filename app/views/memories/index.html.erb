@@ -1,0 +1,46 @@
+<h2>Memories index</h2>
+
+<% @memories.each do |memory| %>
+    <ul>
+        <li>
+            Memory id：<%= memory.id %>
+        </li>
+        <li>
+            ユーザー名：<%= memory.user.name %>
+        </li>
+        <li>
+            Prefecture_id：<%= memory.prefecture_id %>
+        </li>
+        <li>
+            都道府県：<%= memory.prefecture_name %>
+        </li>
+        <li>
+            コメント：<%= memory.comment %>
+        </li>
+        <li>
+            写真：<img src="<%= memory.img %>" width="100">
+        </li>
+        <li>
+            <%= link_to "編集", edit_memory_path(memory.id) %>
+        </li>
+    </ul>
+<% end %>
+
+<% if @memories.present? %>
+    <p>表示白い</p>
+<% end %>
+
+<%#= @memories.find_by(prefecture_name: "北海道").comment %>
+
+<%= @memories.where(prefecture_id: 24).each do |memory| %>
+    <%= memory.prefecture_name %>
+<% end %>
+
+
+<%= @memories.find_by(prefecture_id: 24).prefecture_name %>
+<%# end %>
+
+   
+
+
+<%= link_to "TOP", root_url %>

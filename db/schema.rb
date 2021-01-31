@@ -10,19 +10,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_17_090939) do
+ActiveRecord::Schema.define(version: 2021_01_28_111139) do
 
   create_table "checks", force: :cascade do |t|
-    t.integer "check_id"
+    t.integer "user_id"
     t.boolean "been_to", default: false, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "prefecture_name"
   end
 
+  create_table "labels", force: :cascade do |t|
+    t.integer "prefecture_id"
+    t.string "prefecture_name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "check_id"
+  end
+
   create_table "likes", force: :cascade do |t|
     t.integer "user_id"
     t.integer "prefecture_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "memories", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "prefecture_id"
+    t.string "prefecture_name"
+    t.string "comment"
+    t.string "img"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

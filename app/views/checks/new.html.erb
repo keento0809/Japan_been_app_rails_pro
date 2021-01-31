@@ -1,6 +1,9 @@
 <h2>Prefecture Data Storage Test</h2>
 
 <%= form_with(model: @check, local: true) do |form| %>
+
+    <%#= form.label :ユーザー  %>
+    <%= form.hidden_field :user_id, :value => current_user.id %>
     <ul id="js-pref-list"> 
         <li id="jsPref0" class="searchPref"><%= form.check_box :prefecture_name, { multiple: true }, "北海道", nil %>北海道</li>
         <li id="jsPref1" class="searchPref"><%= form.check_box :prefecture_name, { multiple: true }, "青森", nil %>青森</li>

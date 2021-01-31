@@ -1,5 +1,12 @@
 <!-- 都道府県詳細ページの戻るボタンを押すとトップページに戻るようにする -->
-<%= render 'prefectures/test' %>
+<% if logged_in? %>
+    <%= render 'homes/if' %>
+<% else %>
+    <%= render 'homes/else' %>
+<% end %>
+
+
+<%#= render 'prefectures/test' %>
 
 
 

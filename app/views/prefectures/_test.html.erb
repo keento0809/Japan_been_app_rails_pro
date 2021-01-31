@@ -2,6 +2,48 @@
 
 <h2>Test Check box</h2>
 
+<% if false %>
+
+<%= form_with(model: @prefecture, local: true) do |form| %>
+
+<% Prefecture.all.each do |prefecture| %>
+    <div>
+        <%= form.check_box :prefecture_ids, { multiple: true }, prefecture[:id] %>
+        <%= prefecture.name %>
+    </div>
+<% end %>
+    <%= form.submit %>
+<% end %>
+
+
+<% end %>
+
+<div>
+    <% @prefectures.find(1,2,3).each do |pref| %>
+        <%= pref.name %>
+    <% end %>
+</div>
+
+<% @prefectures.each do |prefecture| %>
+    <%= prefecture.name %>
+<% end %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<% if false %>
+
 <%= form_with(model: @prefecture, local: true) do |form| %>
     <ul id="js-pref-list"> 
         <li id="jsPref0" class="searchPref"><%= form.check_box :beens, { multiple: true }, "北海道", nil %>北海道</li>
@@ -54,6 +96,8 @@
     </ul>
 
     <%= form.submit %>
+<% end %>
+
 <% end %>
 
 

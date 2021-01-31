@@ -1,6 +1,6 @@
 class PrefecturesController < ApplicationController
     before_action :set_search
-    # before_action :set_prefecture
+    # before_action :set_memory_img, only: [:show, :edit]
 
   def index
     if params[:search]
@@ -43,44 +43,10 @@ class PrefecturesController < ApplicationController
     flash[:success] = "Done."
     redirect_to root_url
   end
-#   def update_been
-#     if params[:checkbox] == "true"
-#         prefecture = Prefecture.where(params[:checkbox])
-#         prefecture.checkbox = true
-#         prefecture.save
-#         prefecture.update(been_params)
-#         redirect_to root_url
-    # elsif params[:checkbox] == " "
-    #     prefecture = Prefecture.where(params[:checkbox])
-        
-    #     # prefecture.save(been_params)
-    #     prefecture.update(been_params)
-    #     redirect_to root_url
-#     else
-#         render 'prefectures/index'
-#     end
-#   end
 
-#   def update_been
-#     @prefecture = Prefecture.where(params[:checkbox])
-#     # if params[:checkbox] == 1
-#     #     @prefecture.checkbox = true
-#     # end
-#     # @prefectures = Prefecture.all
-#     if  @prefecture.update(been_params)
-#         # @prefecture = true
-#         redirect_to prefectures_path, notice: 'Success!'
-#     end
-#   end
-
-#   def update_been
-#     @prefecture = Prefecture.all.where(params[:checkbox])
-#     if  params[:checkbox] == 1
-#         @prefecture.checkbox = true
-#         @prefectures.save
-#         # @prefecture = true
-#         redirect_to 'root'
-#     end
+#   def set_memory_img
+#     @prefecture = Prefecture.find_by(params[:id])
+#     @memory_img = @prefecture.img
 #   end
 
 

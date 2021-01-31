@@ -10,22 +10,23 @@ class ChecksController < ApplicationController
     @check = Check.new
   end
 
+  # test
   def create
-    @check = Check.new(prefecture_name_params)
+    @check = Check.new(prefecture_ids_params)
     if @check.save
-        flash[:success] = 'Success to check!'
-        redirect_to root_url
+        redirect_to root_url, notice: 'Create new check'
     else
-        render 'new'
+        render :new
     end
   end
+  # test ends here
 
   def edit
 
   end
 
   def update
-    if @check.updated
+    if @check.update(update_prefecture_ids_params)
         flash[:success] = 'Success to update!'
         redirect_to root_url
     else
@@ -38,12 +39,24 @@ class ChecksController < ApplicationController
         @check = Check.find(params[:id])
     end
 
-    def prefecture_name_params
-        params.permit(prefecture_name: [])
-    end
+    # def prefecture_name_params
+    #     # params.permit(:user_id, prefecture_name: [])
+    #     params.permit(:user_id, prefecture_name: [])
+    # end
 
     def check_string
-        params[:check][:prefecture_name] = params[:check][:prefecture_name].join("/") # to string
+        # params[:check][:prefecture_name] = params[:check][:prefecture_name].join("/") # to string
+        params[:prefecture_name] = params[:prefecture_name].join("/") # to string
     end
 
+    # test
+    def prefecture_ids_params
+        # create時、.requireを入れるとどうしてもエラーになってしまう
+        params.permit(:user_id, prefecture_ids: [])
+    end
+
+    def update_prefecture_ids_params
+        # やはりupdate時は.requireを付けないと内容が更新されない
+        params.require(:check).permit(:user_id, prefecture_ids: [])
+    end
 end

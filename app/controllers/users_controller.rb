@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
     # before_actionはコントローラに記述する
     # before_action :user_params
+    skip_before_action :logged_in_user, only: [:new]
     # loggged_in_user：ログイン済みユーザーか否かを確認
     before_action :logged_in_user, only: [:index, :edit, :update, :destory]
     # correct_user：正しいユーザーか確認

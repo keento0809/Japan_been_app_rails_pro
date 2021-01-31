@@ -4,6 +4,11 @@
 
 'use strict'
 {
+
+//   const teest = document.getElementById('until');
+//   teest.addEventListener('click', () => {
+//     console.log('テスト成功');
+//   });
   // モーダル関係。
   // それぞれの地方ごとの県に共通のクラス名を付与しクリックイベントを実装
   // 各都道府県をHTMLから取得するためにNodeListとして取得しているため、このままではaddEventListenerが使えない

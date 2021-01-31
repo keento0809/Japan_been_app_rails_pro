@@ -1,0 +1,45 @@
+<head>
+    <%= stylesheet_link_tag 'prefectures', media: 'all', 'data-turbolinks-track': 'reload' %>
+</head>
+
+<div class="container">
+    <h2>Edit <%= @memory.user.name %>'s memory in <%= @memory.prefecture.name %></h2>
+
+    <%= form_with(model: @memory, local: true) do |f| %>
+            <!-- user_idとprefectur_idとprefecture_nameは、f.hidden_fieldで送信 -->
+            <%#= f.hidden_field :user_id, :value => current_user.id %>
+            <%#= f.hidden_field :prefecture_id, :value => @memory.prefecture_id %>
+            <%#= f.hidden_field :prefecture_name, :value => @memory.prefecture.name %>
+
+            <!-- コメント欄 -->
+            <div class="text-wrapper">
+            <%= f.text_area :comment, class: '' , placeholder: "コメントを残す", id: "detail", :size => "30×10", minlength: "10", maxlength: "141"  %>
+            <!-- <textarea name="message" id="detail" cols="30" rows="10" minlength="10" maxlength="141"></textarea> -->
+            </div>
+
+            <!-- 写真登録 -->
+            <div class="photo-section">
+                <!-- プレビューした写真を表示するエリア -->
+                <!-- DBに保存された画像の有無で条件分岐 -->
+                <% if @memory.img? %>
+                    <%#= image_tag @prefecture.img.url, id: "image-preview2" %>
+                    <img src="<%= @memory.img %>", width="100">
+                <% else %>
+                    <img src="" id="image-preview">
+                <% end %>
+                <!-- 条件分岐ここまで -->
+
+                <label class="input-button">
+                    <%= f.file_field :img, id: "image" %>
+                    <!-- <input type="file" id="image"> -->
+                </label>
+            </div>
+
+            <!-- 登録ボタン -->
+            <div class="btn-section">
+            　<%= f.submit "更新", class: "savebtn" %>
+            </div>
+
+        <% end %>
+</div>
+

@@ -1,7 +1,7 @@
 class User < ApplicationRecord
     # validatesはModelに記述する
     # バリデーションとはDBに値を保存する際に何か値が抜けていると保存できなくするもの。簡単に言えばフィルターみたいなもの。
-    validates :name, presence: true, length: { minimum:3, maximum:50 }
+    validates :name, presence: true, length: { minimum:3, maximum:50 }, uniqueness: true
     VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
     # VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
     validates :email, presence: true, length: { minimum:3, maximum:50 }, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
@@ -9,7 +9,11 @@ class User < ApplicationRecord
     has_secure_password
 
     # Userは行ったことのある都道府県データのCheckを所有する
+    has_many :checks
 
+    # User, Memory, Prefectureにてhas_many throughの関連付けを行う
+    has_many :memories
+    has_many :prefectures, through: :memories, dependent: :destroy
     
 
     # has_manyは複数形なのでモデルを複数形の:likes、:prefecturesにする

@@ -1,14 +1,23 @@
 Rails.application.routes.draw do
-  
-#   root 'users#new'
+  get '/login', to: 'sessions#new'
+
   root 'homes#index' 
+
+  get '/signup', to: 'users#new'
   
-  get 'checks/new'
+#   get 'memories/new'
+#   get 'memories/create'
+#   get 'memories/edit'
+#   root 'users#new'
+  
+  get 'checks/index'
+  get 'checks/new', to: 'checks#new'
   get 'checks/create'
   # 都道府県詳細ページの戻るボタンでトップページに戻る際に必要
   get 'prefectures/index'
   get 'users/index'
-  get 'users/:id', to: 'users#show'
+  # テスト：下記ルートを消すとsignupページへリンクする際のエラーが無くなった
+#   get 'users/:id', to: 'users#show'
   get 'homes/index'
   get 'sessions/new'
 
@@ -22,11 +31,9 @@ Rails.application.routes.draw do
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
-  get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
 
-  get '/signup', to: 'users#new'
   resources :users
 #   resources :prefectures do
 #       resources :like, only: [:create, :destroy]
@@ -36,4 +43,9 @@ Rails.application.routes.draw do
   resources :account_activations, only: [:edit]
 
   resources :checks
+
+  resources :memories
+
+
+  post 'prefectures/:id', to: 'memories#create'
 end

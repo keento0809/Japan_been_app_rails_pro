@@ -8,118 +8,54 @@
 
     <div class="item1"><span>1</span>どんな思い出？</div>
 
-    <!-- ここからform_with -->
-    <%= form_with(model: @prefecture, local: true) do |f| %>
+    <!-- テスト -->
+    <%= form_with(model: @memory, local: true) do |f| %>
+        <!-- user_idとprefectur_idとprefecture_nameは、f.hidden_fieldで送信 -->
+        <%= f.hidden_field :user_id, :value => current_user.id %>
+        <%= f.hidden_field :prefecture_id, :value => @prefecture.id %>
+        <%= f.hidden_field :prefecture_name, :value => @prefecture.name %>
 
-
-    <div class="text-wrapper">
-      <%= f.text_area :comment, class: '' , placeholder: "コメントを残す", id: "detail", :size => "30×10", minlength: "10", maxlength: "141"  %>
-      <!-- <textarea name="message" id="detail" cols="30" rows="10" minlength="10" maxlength="141"></textarea> -->
-    </div>
-    <!-- 写真登録 -->
-    <div class="photo-section">
-      <!-- プレビューした写真を表示するエリア -->
-      <!-- DBに保存された画像の有無で条件分岐 -->
-      <% if @prefecture.img? %>
-        <%= image_tag @prefecture.img.url, id: "image-preview2" %>
-      <% else %>
-        <img src="" id="image-preview">
-      <% end %>
-    　<!-- 条件分岐ここまで -->
-
-      <label class="input-button">
-        <%= f.file_field :img, id: "image" %>
-        <!-- <input type="file" id="image"> -->
-      </label>
-    </div>
-
-    <!-- 登録ボタン -->
-    <div class="btn-section">
-    　<%= f.submit "保存", class: "savebtn" %>
-      <!-- <input type="submit" value="保存" class="savebtn"> -->
-    </div>
-
-
-    <% end %>
-    <!-- form_withここまで -->
-    
-    <!-- トップページに戻るボタン -->
-    <div class="btn-section">
-      <input type="submit" value="戻る" class="backBtn" id='js-backBtn'>
-    </div>
-
-  </div>
-
-
-
-
-
-
-    <!-- 下記コメントアウトします -->
-<% if false %>
-
-    <div class="section"><span>1</span>どんな思い出？</div>
-
-
-    <%= form_with(model: @prefecture, local: true) do |f| %>
-        <!-- コメント投稿フォーム -->
-        <%#= f.text_area :comment, class: 'taa' , placeholder: "コメントを残す", id="detail" cols="30" rows="10" minlength="10" maxlength="141" %>
-
-        <!-- 画像表示条件分岐テスト -->
-        <% if @prefecture.img? %>
-            <%= image_tag @prefecture.img.url, id: "image-preview2" %>
-        <% else %>
-            <img src="" id="image-preview">
-        <% end %>
-
-
-        <!-- 画像投稿フォーム -->
-        <div class="img-zone">
-            <%= f.file_field :img %>
-
-            <% if @prefecture.img? %>
-                <!-- <div class="img-zone"> -->
-                    <%= image_tag @prefecture.img.url %>
-                    <!-- 削除ボタン追加 -->
-
-                <!-- </div> -->
-            <% else %>
-                <p>No image added.</p>
-            <% end %>
-            <div class="btn-section">
-                <%= f.submit "保存", id: 'wakewaka' %>
-            </div>
+        <!-- コメント欄 -->
+        <div class="text-wrapper">
+        <%= f.text_area :comment, class: '' , placeholder: "コメントを残す", id: "detail", :size => "30×10", minlength: "10", maxlength: "141"  %>
+        <!-- <textarea name="message" id="detail" cols="30" rows="10" minlength="10" maxlength="141"></textarea> -->
         </div>
 
-<% end %>
+        <!-- 写真登録 -->
+        <div class="photo-section">
+            <!-- プレビューした写真を表示するエリア -->
+            <!-- DBに保存された画像の有無で条件分岐はここでは不要？一旦プレビューフォームのみ表示させる -->
+            <img src="" id="image-preview">
 
+            <!-- 条件分岐コメントアウト -->
+            <% if false %>
+            <% if @memory.img? %>
+            <%# if @memory_img? %>
+                <%#= image_tag @prefecture.img.url, id: "image-preview2" %>
+                <img src="<%= @prefecture.img %>">
+            <% else %>
+                <img src="" id="image-preview">
+            <% end %>
+            <% end %>
+            <!-- 条件分岐コメントアウトここまで -->
 
-<% if false %>
-    <div class="text-wrapper">
-        <input type="text">
-    </div>
+            <label class="input-button">
+                <%= f.file_field :img, id: "image" %>
+                <!-- <input type="file" id="image"> -->
+            </label>
+        </div>
+
+        <!-- 登録ボタン -->
+        <div class="btn-section">
+        　<%= f.submit "保存", class: "savebtn" %>
+        </div>
+
     <% end %>
 
-    <div class="photo-section">
-    <!-- プレビューした写真を表示するエリア -->
-    <img src="" id="image-preview">
-    <label class="input-button">
-      <!-- 一時的にidを変更 -->
-      <input type="file" id="image">
-    </label>
-
-
-    <!-- 保存した画像を表示する -->
-    <%#= image_tag @prefecture.img.url %>
-    </div>
-    <!-- 登録ボタン -->
-    <div class="btn-section">
-        <input type="submit" value="保存">
-    </div>
-
-
-<% end %>
-<!-- コメントアウトここまで -->
+        <!-- トップページに戻るボタン -->
+        <div class="btn-section">
+        <input type="submit" value="戻る" class="backBtn" id='js-backBtn'>
+        </div>
 
 </div>
 
@@ -128,47 +64,76 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- 下記コメントアウトします -->
     <% if false %>
-    <%= form_with(model: @prefecture, local: true) do |f| %>
-        <!-- コメント投稿フォーム -->
+
+    <!-- ここからform_with -->
+        <%= form_with(model: @prefecture, local: true) do |f| %>
+
+
         <div class="text-wrapper">
-            <%# <input type="comment"> %>
-            <%= f.text_area :comment, placeholder: "Compose talk..." %>
+        <%= f.text_area :comment, class: '' , placeholder: "コメントを残す", id: "detail", :size => "30×10", minlength: "10", maxlength: "141"  %>
+        <!-- <textarea name="message" id="detail" cols="30" rows="10" minlength="10" maxlength="141"></textarea> -->
+        </div>
+        <!-- 写真登録 -->
+        <div class="photo-section">
+        <!-- プレビューした写真を表示するエリア -->
+        <!-- DBに保存された画像の有無で条件分岐 -->
+        <% if @prefecture.img? %>
+            <%= image_tag @prefecture.img.url, id: "image-preview2" %>
+        <% else %>
+            <img src="" id="image-preview">
+        <% end %>
+        　<!-- 条件分岐ここまで -->
+
+        <label class="input-button">
+            <%= f.file_field :img, id: "image" %>
+            <!-- <input type="file" id="image"> -->
+        </label>
         </div>
 
         <!-- 登録ボタン -->
         <div class="btn-section">
-            <%= f.submit "保存" %>
+        　<%= f.submit "保存", class: "savebtn" %>
+        <!-- <input type="submit" value="保存" class="savebtn"> -->
         </div>
-    <% end %>
-    <% end %>
 
 
-    <!-- コメント投稿フォーム・コメントアウト -->
-    <% if false %>
-        <div class="text-wrapper">
-        <input type="text">
-        </div>
+        <% end %>
+        <!-- form_withここまで -->
     <% end %>
     <!-- コメントアウトここまで -->
 
 
-    <!-- 写真登録 -->
-    <% if false %><!-- オリジナル版コメントアウト -->
-    <div class="photo-section">
-      <!-- プレビューした写真を表示するエリア -->
-      <img src="" id="image-preview">
-      <label class="input-button">
-        <input type="file" id="image">
-      </label>
-    </div>
-    <!-- 登録ボタン -->
-    <div class="btn-section">
-      <input type="submit" value="保存">
-    </div>
-    <% end %>
-    <!-- コメントアウトここまで -->
 
+    
 
 
 
