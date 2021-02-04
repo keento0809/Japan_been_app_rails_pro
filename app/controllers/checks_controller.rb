@@ -22,7 +22,7 @@ class ChecksController < ApplicationController
   # test ends here
 
   def edit
-
+    # @check = Check.find(user_id: user.id)
   end
 
   def update
@@ -59,4 +59,5 @@ class ChecksController < ApplicationController
         # やはりupdate時は.requireを付けないと内容が更新されない
         params.require(:check).permit(:user_id, prefecture_ids: [])
     end
+
 end

@@ -1,6 +1,6 @@
 class Check < ApplicationRecord
     # Checkのデータはユーザーによって所有されている
-    # belongs_to :holder, class_name: "User", foreign_key: "user_id"
+    belongs_to :user
 
     # Label, Check, Prefectureにてhas_many throughの関連付けを行う
     has_many :labels, dependent: :destroy
